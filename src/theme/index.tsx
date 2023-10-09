@@ -5,23 +5,32 @@ import {
   withDefaultColorScheme,
 } from "@chakra-ui/react";
 
+import { mode } from "@chakra-ui/theme-tools";
+
 const inputSelectStyles = {
-    variants: {
-      filled: {
-        field: {
-          _focus: {
-            borderColor: "brand.500",
-          },
+  variants: {
+    filled: {
+      field: {
+        _focus: {
+          borderColor: "brand.500",
         },
       },
     },
-    sizes: {
-      md: {
-        field: {
-          borderRadius: "none",
-        },
+  },
+  sizes: {
+    md: {
+      field: {
+        borderRadius: "none",
       },
     },
+  },
+};
+
+const brandRing = {
+  _focus: {
+    ring: 2,
+    ringColor: "brand.400",
+  },
 };
 
 const theme = extendTheme(
@@ -49,8 +58,31 @@ const theme = extendTheme(
     components: {
       Input: { ...inputSelectStyles },
       Select: { ...inputSelectStyles },
+      Button: {
+        variants: {
+          primary: (props) => ({
+            rounded: "none",
+            ...brandRing,
+            backgroundColor: mode("brand.500", "brand.300")(props),
+            _hover: {
+              backgroundColor: mode("brand.600", "brand.400")(props),
+            },
+            _active: {
+              backgroundColor: mode("brand.700", "brand.400")(props),
+            }
+          }),
+        },
+      },
+      Checkbox: {
+        baseStyle: {
+          control: {
+            borderRaidus: "none",
+            ...brandRing,
+          },
+        },
+      },
     },
-  },  
+  },
 
   withDefaultVariant({
     variant: "filled",
