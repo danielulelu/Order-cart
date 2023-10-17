@@ -55,6 +55,7 @@ const theme = extendTheme(
       body: `Inter, ${base.fonts?.body}`,
     },
 
+    
     components: {
       Input: { ...inputSelectStyles },
       Select: { ...inputSelectStyles },

@@ -39,7 +39,6 @@ const Cart = () => {
           <img
             src="https://bit.ly/naruto-sage"
             alt="naruto"
-            objectFit="cover"
           />
         </AspectRatio>
         <Stack
