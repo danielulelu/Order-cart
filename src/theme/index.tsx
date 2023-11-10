@@ -61,7 +61,7 @@ const theme = extendTheme(
       Select: { ...inputSelectStyles },
       Button: {
         variants: {
-          primary: (props) => ({
+          primary: (props: Record<string, any>) => ({
             rounded: "none",
             ...brandRing,
             backgroundColor: mode("brand.500", "brand.300")(props),
